@@ -5,7 +5,7 @@ import styles from './styles.module.css'
 export default function Tabs() {
 
   return (
-    <ul className={`nav justify-content-center ${styles.tabContainer}`}>
+    <ul className={`nav justify-content-center ${styles.tabs}`}>
       <li className="nav-item">
         <a className="nav-link active" aria-current="page" href="#">
           Saludable

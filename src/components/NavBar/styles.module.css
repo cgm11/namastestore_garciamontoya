@@ -3,14 +3,40 @@
 }
 
 .navBarContainer {
-    padding: 10px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #e0b879;
+    padding: 10px 100px; 
+}
+
+.tabContainer {       
     display: flex;
     align-items: center;
 }
 
-.tabContainer {
+.tabs {
     margin-left: 20px;
+}
+
+.iconContainer {
+    width: 45px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.iconContainer svg {
+    width: 20px;
+    height: 20px;
+    color: #979899;
+}
+
+.iconContainer:hover {
+    background-color: #b3782d;
+    border: 1px solid #b3782d;
+    border-radius: 6px;
 }
 
 @media (max-width: 600px){

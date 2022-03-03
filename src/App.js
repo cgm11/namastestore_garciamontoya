@@ -1,10 +1,12 @@
 import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-    </div>
+      <ItemListContainer greeting={'Bienvenido a Namasté Store, acá podrás ver todos nuestros productos próximamente'}/>
+    </div>  
   );
 }
 

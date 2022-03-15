@@ -5,3 +5,13 @@
 .itemListContainer h2 {
     text-align: center;
 }
+
+.button {
+    width: 10em;
+    background: #b3782d;
+    border: 2px solid #b3782d;
+    height: 40px;
+    border-radius: 8px;
+    color: #fff;
+    margin-top: 10px;
+}

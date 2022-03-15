@@ -1,0 +1,12 @@
+.detailContainer {
+    display: flex;
+    margin: 50px 100px;
+}
+
+.detailContainer img {
+    margin-right: 30px;
+}
+
+.info {
+    width: 40%;
+}

@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
 import ItemCount from "../ItemCount/ItemCount";
-import styles from './styles.module.css'
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
+import styles from "./styles.module.css";
 
 const ItemListContainer = (props) => {
   const { greeting } = props;
 
+  const [detail, setDetail] = useState(false);
+
+  const getDetail = () => setDetail(true)
+
   return (
-    <div className={styles.itemListContainer}>
-      <h2>{greeting}</h2>
-      <ItemCount stock={5} initial={1} />
-    </div>
+    <>
+      {!detail ? (
+        <div className={styles.itemListContainer}>
+          <h2>{greeting}</h2>
+          <ItemCount stock={5} initial={1} />
+          <button className={styles.button} onClick={getDetail}>Ver detalle</button>
+        </div>
+      ) : (
+        <ItemDetailContainer />
+      )}
+    </>
   );
 };
 

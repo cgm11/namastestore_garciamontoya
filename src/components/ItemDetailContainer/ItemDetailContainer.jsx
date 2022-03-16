@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import ItemDetail from "./ItemDetail";
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({setDetail}) => {
   const [item, setItem] = useState({});
 
   const product = {
@@ -34,7 +34,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-      <ItemDetail item={item} />
+      <ItemDetail item={item} setDetail={setDetail} />
     </div>
   );
 };

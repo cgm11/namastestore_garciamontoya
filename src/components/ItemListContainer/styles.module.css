@@ -1,5 +1,5 @@
 .itemListContainer {
-    padding: 10px 100px;
+    padding: 65px 100px;
 }
 
 .itemListContainer h2 {
@@ -7,11 +7,28 @@
 }
 
 .button {
-    width: 10em;
+    width: 100%;
     background: #b3782d;
     border: 2px solid #b3782d;
     height: 40px;
     border-radius: 8px;
     color: #fff;
     margin-top: 10px;
+}
+
+.itemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.itemContainer img {
+    width: 250px;
+    height: 320px;
+}
+
+.itemContainer p {
+    margin: 10px 0px;
+    text-align: center;
 }

@@ -1,25 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import ItemDetail from "./ItemDetail";
+import { stock } from "../../data/stock";
 
-const ItemDetailContainer = ({setDetail}) => {
-  const [item, setItem] = useState({});
+const ItemDetailContainer = () => {
+  const [item, setItem] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const product = {
-    skuId: 0,
-    name: "Donas",
-    price: 3000,
-    description:
-      "Deliciosas donas de diferentes sabores tales como chocolate, fresa, naranja y muchos más",
-    image:
-      "https://images.unsplash.com/photo-1644845795868-12e95c3268a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
-  };
+  const { id } = useParams();
 
   const getItem = new Promise((resolve, reject) => {
     let condition = true;
     if (condition) {
       setTimeout(() => {
-        resolve(product);
+        resolve(stock.find((item) => item.skuId === id));
       }, 2000);
     } else {
       reject("Se genero un error obteniendo el producto");
@@ -27,16 +22,16 @@ const ItemDetailContainer = ({setDetail}) => {
   });
 
   useEffect(() => {
-    getItem.then((response) => {
-      setItem(response);
-    });
+    setLoading(true);
+    getItem
+      .then((response) => {
+        setItem(response);
+      })
+      .catch(() => console.log("ocurrio un error cargando la información"))
+      .finally(() => setLoading(false));
   }, []);
 
-  return (
-    <div>
-      <ItemDetail item={item} setDetail={setDetail} />
-    </div>
-  );
+  return <div>{loading ? <p>Cargando...</p> : <ItemDetail item={item} />}</div>;
 };
 
 export default ItemDetailContainer;

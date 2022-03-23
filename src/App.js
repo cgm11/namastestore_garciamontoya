@@ -1,12 +1,23 @@
-import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+
+import NavBar from "./components/NavBar/NavBar";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <ItemListContainer greeting={'Bienvenido a Namasté Store, acá podrás ver todos nuestros productos próximamente'}/>
-    </div>  
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={ <ItemListContainer />}/>
+          <Route path="/category/:categoryId" element={ <ItemListContainer /> } />
+          <Route path="item/:id" element={ <ItemDetailContainer />} />
+          <Route path="*" element={ <Navigate to="/" />}/>
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

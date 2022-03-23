@@ -1,21 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./styles.module.css";
 
-const Item = ({ item, setDetail }) => {
-  const { name, price, image } = item;
-
-  const getDetail = () => setDetail(true);
+const Item = ({ item }) => {
+  const { name, price, image, skuId } = item;
 
   return (
-      <div className={styles.itemContainer}>
+    <div className={styles.itemContainer}>
       <img src={image} alt={name} />
       <div className={styles.info}>
         <p>{name}</p>
         <p>{`Precio: $${price}`}</p>
-        <button className={styles.button} onClick={getDetail}>
-            Ver detalle
-          </button>
+        <Link to={`/item/${skuId}`}>
+          <button className={styles.button}>Ver detalle</button>
+        </Link>
       </div>
     </div>
   );

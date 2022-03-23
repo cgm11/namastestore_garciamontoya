@@ -23,9 +23,13 @@
     cursor: pointer;
 }
 
+.itemContainer {
+    margin-top: 25px;
+}
+
 .itemContainer img {
-    width: 250px;
-    height: 320px;
+    width: 300px;
+    height: 370px;
 }
 
 .itemContainer p {

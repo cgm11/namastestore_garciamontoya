@@ -5,6 +5,8 @@
 
 .detailContainer img {
     margin-right: 30px;
+    width: 400px;
+    height: 475px;
 }
 
 .info {

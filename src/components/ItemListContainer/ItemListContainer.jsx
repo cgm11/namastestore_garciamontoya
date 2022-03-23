@@ -1,55 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import ItemList from "./ItemList";
 import styles from "./styles.module.css";
+import { stock } from "../../data/stock";
 
 const ItemListContainer = () => {
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const products = [
-    {
-      skuId: 0,
-      name: "Donas",
-      price: 3000,
-      description:
-        "Deliciosas donas de diferentes sabores tales como chocolate, fresa, naranja y muchos más",
-      image:
-        "https://images.unsplash.com/photo-1644845795868-12e95c3268a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
-    },
-    {
-      skuId: 1,
-      name: "Macarrones franceses",
-      price: 1000,
-      description:
-        "Los pequeños, dulces y coloridos macarrones franceses",
-      image:
-        "https://images.unsplash.com/photo-1645542563306-ef00dda7f4a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
-    },
-    {
-      skuId: 2,
-      name: "Brownie con helado",
-      price: 12000,
-      description:
-        "Delicioso brownie caliente con una bola de helado de vainilla bañado en arequipe",
-      image:
-        "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
-    },
-    {
-      skuId: 3,
-      name: "Pie con crema",
-      price: 12000,
-      description:
-        "pastel relleno con una rica crema pastelera",
-      image:
-        "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
-    },
-  ];
+  const { categoryId } = useParams();
 
   const getItems = new Promise((resolve, reject) => {
     let condition = true;
     if (condition) {
       setTimeout(() => {
-        resolve(products);
+        resolve(stock);
       }, 2000);
     } else {
       reject("Se genero un error obteniendo el producto");
@@ -57,14 +23,24 @@ const ItemListContainer = () => {
   });
 
   useEffect(() => {
-    getItems.then((response) => {
-      setItems(response);
-    });
-  }, []);
+    setLoading(true);
+
+    getItems
+      .then((response) => {
+        if (!categoryId) {
+          setItems(response);
+        } else {
+          setItems(response.filter((item) => item.category === categoryId));
+        }
+      })
+      .catch(() => console.log("ocurrio un error cargando la información"))
+      .finally(() => setLoading(false));
+
+  }, [categoryId]);
 
   return (
     <div className={styles.itemListContainer}>
-      <ItemList items={items}/>
+      {loading ? <p>Cargando...</p> : <ItemList items={items} />}
     </div>
   );
 };

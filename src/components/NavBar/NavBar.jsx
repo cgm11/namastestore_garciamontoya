@@ -14,14 +14,26 @@ const NavBar = () => {
         </Link>
 
         <nav className={`${styles.tabs}`}>
-          <Link className={styles.marginLeft} to="/category/2">Saludable</Link>
-          <Link className={styles.marginLeft} to="/category/3">Sanduches</Link>
-          <Link className={styles.marginLeft} to="/category/4">Hamburguesas</Link>
-          <Link className={styles.marginLeft} to="/category/5">Pizzas</Link>
-          <Link className={styles.marginLeft} to="/category/1">Postres</Link>
+          <Link className={styles.marginLeft} to="/category/2">
+            Saludable
+          </Link>
+          <Link className={styles.marginLeft} to="/category/3">
+            sandwiches
+          </Link>
+          <Link className={styles.marginLeft} to="/category/4">
+            Hamburguesas
+          </Link>
+          <Link className={styles.marginLeft} to="/category/5">
+            Pizzas
+          </Link>
+          <Link className={styles.marginLeft} to="/category/1">
+            Postres
+          </Link>
         </nav>
       </div>
-      <CartWidget />
+      <Link to={`/cart`}>
+        <CartWidget />
+      </Link>
     </div>
   );
 };

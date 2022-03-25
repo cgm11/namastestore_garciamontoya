@@ -18,7 +18,7 @@ export const stock = [
     image:
       "https://images.unsplash.com/photo-1645542563306-ef00dda7f4a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
     category: "1",
-    stock: 5,
+    stock: 10,
   },
   {
     skuId: '2',
@@ -39,7 +39,7 @@ export const stock = [
     image:
       "https://images.unsplash.com/photo-1543508185-225c92847541?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGllJTIwd2l0aCUyMGNyZWFtfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
     category: "1",
-    stock: 5,
+    stock: 15,
   },
   {
     skuId: '4',
@@ -59,7 +59,7 @@ export const stock = [
     image:
       "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80",
     category: "2",
-    stock: 5,
+    stock: 12,
   },
   {
     skuId: '6',
@@ -73,29 +73,29 @@ export const stock = [
   },
   {
     skuId: '7',
-    name: "Sanduche de queso con maicitos",
+    name: "Sandwich de queso con maicitos",
     price: 9000,
-    description: "Delicioso sanduche de queso mozzarella con maicitos y salsas de la casa",
+    description: "Delicioso sandwich de queso mozzarella con maicitos y salsas de la casa",
     image:
       "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80",
     category: "3",
-    stock: 5,
+    stock: 2,
   },
   {
     skuId: '8',
-    name: "Sanduche de pollo con verduras",
+    name: "Sandwich de pollo con verduras",
     price: 18000,
-    description: "Sanduche con pan artesanal relleno con pollo y deliciosas verduras como pepinillos, cebolla y lechuga",
+    description: "Sandwich con pan artesanal relleno con pollo y deliciosas verduras como pepinillos, cebolla y lechuga",
     image:
       "https://images.unsplash.com/photo-1559466273-d95e72debaf8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
     category: "3",
-    stock: 5,
+    stock: 8,
   },
   {
     skuId: '9',
-    name: "Sanduche qbano",
+    name: "Sandwich qbano",
     price: 16000,
-    description: "Sanduche de jamones en pan francés",
+    description: "Sandwich de jamones en pan francés",
     image:
       "https://images.unsplash.com/photo-1554433607-66b5efe9d304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
     category: "3",
@@ -119,7 +119,7 @@ export const stock = [
     image:
       "https://images.unsplash.com/photo-1615297928064-24977384d0da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1112&q=80",
     category: "4",
-    stock: 5,
+    stock: 10,
   },
   {
     skuId: '12',
@@ -139,7 +139,7 @@ export const stock = [
     image:
       "https://images.unsplash.com/photo-1594078187393-71dd5b8833f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
     category: "5",
-    stock: 5,
+    stock: 20,
   },
   {
     skuId: '14',
@@ -159,6 +159,6 @@ export const stock = [
     image:
       "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80",
     category: "5",
-    stock: 5,
+    stock: 1,
   },
 ];

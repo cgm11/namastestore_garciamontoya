@@ -1,36 +1,56 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-import styles from './styles.module.css'
+import styles from "./styles.module.css";
 
 const ItemCount = (props) => {
-  const { stock, initial = 1 } = props;
-  const [count, setCount] = useState(initial)
-  const [addDisabled, setAddDisabled] = useState(false)
-  const [subtractDisabled, setSubtractDisabled] = useState(false)
+  const { stock, count, setCount, addToCart } = props;
+
+  const [addDisabled, setAddDisabled] = useState(false);
+  const [subtractDisabled, setSubtractDisabled] = useState(false);
 
   const addUnit = () => {
-      if(count < stock) {
-        setCount(count + 1)
-      } else {
-        setCount(stock)        
-      }
-  }
+    if (count < stock) {
+      setCount(count + 1);
+    } else {
+      setCount(stock);
+    }
+  };
 
   const subtractUnit = () => {
-    if(count > 1) setCount(count - 1)
-  }
+    if (count > 1) setCount(count - 1);
+  };
 
   useEffect(() => {
-    count < stock ? setAddDisabled(false) : setAddDisabled(true)
-    count > 1 ? setSubtractDisabled(false) : setSubtractDisabled(true)
-  }, [count, stock])
+    count < stock ? setAddDisabled(false) : setAddDisabled(true);
+    count > 1 ? setSubtractDisabled(false) : setSubtractDisabled(true);
+  }, [count, stock]);
 
   return (
-    <div className={styles.itemCountContainer}>
-      <button className={styles.countButton} onClick={subtractUnit} disabled={subtractDisabled}>-</button>
-      <div className={styles.countInput}>{count}</div>
-      <button className={styles.countButton} onClick={addUnit} disabled={addDisabled}>+</button>
-    </div>
+    <>
+      <div className={styles.itemCountContainer}>
+        <button
+          className={styles.countButton}
+          onClick={subtractUnit}
+          disabled={subtractDisabled}
+        >
+          -
+        </button>
+        <div className={styles.countInput}>{count}</div>
+        <button
+          className={styles.countButton}
+          onClick={addUnit}
+          disabled={addDisabled}
+        >
+          +
+        </button>
+      </div>
+      <Link to={`/cart`}>
+        <button className={styles.button} onClick={addToCart}>
+          Agregar al carrito
+        </button>
+      </Link>
+    </>
   );
 };
 

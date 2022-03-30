@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 import styles from "./styles.module.css";
 
@@ -45,11 +44,9 @@ const ItemCount = (props) => {
           +
         </button>
       </div>
-      <Link to={`/cart`}>
         <button className={styles.button} onClick={addToCart}>
           Agregar al carrito
         </button>
-      </Link>
     </>
   );
 };

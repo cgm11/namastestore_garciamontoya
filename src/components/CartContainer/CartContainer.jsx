@@ -1,7 +1,52 @@
 import React from "react";
+import { useContext } from "react";
+import { MdDeleteOutline } from "react-icons/md";
+
+import { CartContext } from "../../context/CartContex";
+import { Link } from "react-router-dom";
+import styles from "./styles.module.css";
 
 const CartContainer = () => {
-    return(<h1>Mi futuro carrito</h1>)
-}
+  const { cart, removeItem, clear, total } = useContext(CartContext);
+  return (
+    <div>
+      {cart.length > 0 ? (
+        <div className={styles.cartContainer}>
+          <h1>Tus compras</h1>
+          {cart.map((item) => (
+            <div className={styles.itemContainer} key={item.skuId}>
+              <img src={item.image} alt={item.name} />
+              <p>{item.name}</p>
+              <p>Cantidad: {item.cantidad}</p>
+              <p>Precio: ${item.cantidad * item.price}</p>
+              <span
+                className={styles.deleteIcon}
+                onClick={() => removeItem(item.skuId)}
+              >
+                <MdDeleteOutline />
+              </span>
+            </div>
+          ))}
+          <div className={styles.totalContainer}>
+            <h2>Total: ${total()}</h2>
+            <div>
+              <div className={styles.button}>
+                <Link to="/">Terminar mi compra</Link>
+              </div>
+              <div onClick={clear}>Vaciar Carrito</div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className={styles.emptyCartContainer}>
+          <h1>Tu carrito está vacío</h1>
+          <div className={`${styles.button} ${styles.width}`}>
+            <Link to="/">Elegir productos</Link>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
-export default CartContainer
+export default CartContainer;

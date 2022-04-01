@@ -43,6 +43,13 @@
     margin-left: 10px;
 }
 
+.total {
+    color: #777;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 3px;
+}
+
 @media (max-width: 600px){
     .logo {
         width: 75px;

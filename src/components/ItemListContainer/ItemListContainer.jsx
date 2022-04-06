@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
 
 import ItemList from "./ItemList";
 import styles from "./styles.module.css";
-import { stock } from "../../data/stock";
+import { db } from "../../utils/firebase";
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -11,31 +12,25 @@ const ItemListContainer = () => {
 
   const { categoryId } = useParams();
 
-  const getItems = new Promise((resolve, reject) => {
-    let condition = true;
-    if (condition) {
-      setTimeout(() => {
-        resolve(stock);
-      }, 2000);
-    } else {
-      reject("Se genero un error obteniendo el producto");
-    }
-  });
-
   useEffect(() => {
     setLoading(true);
-
-    getItems
-      .then((response) => {
-        if (!categoryId) {
-          setItems(response);
-        } else {
-          setItems(response.filter((item) => item.category === categoryId));
-        }
-      })
-      .catch(() => console.log("ocurrio un error cargando la información"))
-      .finally(() => setLoading(false));
-
+    const getData = async () => {
+      const query = collection(db, "items");
+      const response = await getDocs(query);
+      const dataItems = response.docs.map((doc) => {
+        return {
+          skuId: doc.id,
+          ...doc.data(),
+        };
+      });
+      if (!categoryId) {
+        setItems(dataItems);
+      } else {
+        setItems(dataItems.filter((item) => item.category === categoryId));
+      }
+      setLoading(false)
+    };
+    getData();
   }, [categoryId]);
 
   return (

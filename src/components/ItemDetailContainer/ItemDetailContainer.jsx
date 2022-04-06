@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getDoc, doc } from "firebase/firestore";
 
 import ItemDetail from "./ItemDetail";
-import { stock } from "../../data/stock";
+import { db } from "../../utils/firebase";
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
@@ -10,25 +11,16 @@ const ItemDetailContainer = () => {
 
   const { id } = useParams();
 
-  const getItem = new Promise((resolve, reject) => {
-    let condition = true;
-    if (condition) {
-      setTimeout(() => {
-        resolve(stock.find((item) => item.skuId === id));
-      }, 2000);
-    } else {
-      reject("Se genero un error obteniendo el producto");
-    }
-  });
-
   useEffect(() => {
     setLoading(true);
-    getItem
-      .then((response) => {
-        setItem(response);
-      })
-      .catch(() => console.log("ocurrio un error cargando la información"))
-      .finally(() => setLoading(false));
+    const getData = async () => {
+      const query = doc(db, "items", id);
+      const response = await getDoc(query);
+      const dataItem = { skuId: response.id, ...response.data() };
+      setItem(dataItem);
+      setLoading(false)
+    };
+    getData();
   }, []);
 
   return <div>{loading ? <p>Cargando...</p> : <ItemDetail item={item} />}</div>;

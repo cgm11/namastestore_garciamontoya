@@ -31,7 +31,7 @@ const CartContainer = () => {
             <h2>Total: ${total()}</h2>
             <div>
               <div className={styles.button}>
-                <Link to="/">Terminar mi compra</Link>
+                <Link to="/checkout">Terminar mi compra</Link>
               </div>
               <div onClick={clear}>Vaciar Carrito</div>
             </div>

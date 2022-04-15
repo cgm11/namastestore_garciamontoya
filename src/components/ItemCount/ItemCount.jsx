@@ -44,9 +44,9 @@ const ItemCount = (props) => {
           +
         </button>
       </div>
-        <button className={styles.button} onClick={addToCart}>
-          Agregar al carrito
-        </button>
+      <button className={styles.button} onClick={addToCart}>
+        Agregar al carrito
+      </button>
     </>
   );
 };

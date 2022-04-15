@@ -28,7 +28,7 @@ const ItemListContainer = () => {
       } else {
         setItems(dataItems.filter((item) => item.category === categoryId));
       }
-      setLoading(false)
+      setLoading(false);
     };
     getData();
   }, [categoryId]);

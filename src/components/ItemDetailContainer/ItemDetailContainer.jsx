@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
       const response = await getDoc(query);
       const dataItem = { skuId: response.id, ...response.data() };
       setItem(dataItem);
-      setLoading(false)
+      setLoading(false);
     };
     getData();
   }, []);

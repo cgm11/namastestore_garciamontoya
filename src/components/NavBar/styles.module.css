@@ -50,6 +50,14 @@
     margin-left: 3px;
 }
 
+a {
+    color: #fff;
+}
+
+a:hover {
+    color: #be9d5c;
+}
+
 @media (max-width: 600px){
     .logo {
         width: 75px;

@@ -7,16 +7,17 @@ const Item = ({ item }) => {
   const { name, price, image, skuId } = item;
 
   return (
-    <div className={styles.itemContainer}>
-      <img src={image} alt={name} />
-      <div className={styles.info}>
-        <p>{name}</p>
-        <p>{`Precio: $${price}`}</p>
-        <Link to={`/item/${skuId}`}>
+    <Link to={`/item/${skuId}`}>
+      <div className={styles.itemContainer}>
+        <img src={image} alt={name} />
+        <div className={styles.info}>
+          <p>{name}</p>
+          <p>{`Precio: $${price}`}</p>
+
           <button className={styles.button}>Ver detalle</button>
-        </Link>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

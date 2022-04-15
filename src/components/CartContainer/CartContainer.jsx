@@ -30,9 +30,7 @@ const CartContainer = () => {
           <div className={styles.totalContainer}>
             <h2>Total: ${total()}</h2>
             <div>
-              <div className={styles.button}>
-                <Link to="/checkout">Terminar mi compra</Link>
-              </div>
+                <Link className={styles.button} to="/checkout">Terminar mi compra</Link>
               <div onClick={clear}>Vaciar Carrito</div>
             </div>
           </div>
@@ -40,9 +38,7 @@ const CartContainer = () => {
       ) : (
         <div className={styles.emptyCartContainer}>
           <h1>Tu carrito está vacío</h1>
-          <div className={`${styles.button} ${styles.width}`}>
-            <Link to="/">Elegir productos</Link>
-          </div>
+            <Link className={`${styles.button} ${styles.width}`} to="/">Elegir productos</Link>
         </div>
       )}
     </div>

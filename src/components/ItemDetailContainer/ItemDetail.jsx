@@ -34,10 +34,12 @@ const ItemDetail = ({ item }) => {
         <p>{`Precio: $${price}`}</p>
         {isInCart(skuId) ? (
           <div className={styles.buttonContainer}>
-            <Link className={styles.buttonSecondary} to="/">Seguir comprando</Link>
-            <div className={styles.button}>
-            <Link to="/Cart">Ir al carrito</Link>
-            </div>            
+            <Link className={styles.buttonSecondary} to="/">
+              Seguir comprando
+            </Link>
+            <Link className={styles.button} to="/Cart">
+              Ir al carrito
+            </Link>
           </div>
         ) : (
           <ItemCount
